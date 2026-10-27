@@ -118,3 +118,23 @@ figure:hover .pz img{transform:scale(1.07) rotate(1deg)}
 .reveal{opacity:0;transform:translateY(40px)}.is-in{opacity:1;transform:none;transition:opacity .7s,transform .7s cubic-bezier(.34,1.56,.64,1)}
 @media(max-width:600px){.nav{gap:4px}.nav a{font-size:13px;padding:4px 6px}.day{grid-template-columns:58px 1fr}.day-n{width:58px;height:58px}.day-n b{font-size:1.3rem}.tl-line{left:26px}.countdown div{min-width:62px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}.cave{opacity:.85;transform:none}.dive{height:80vh}}
+/* v2b: scrapbook ~30%, itinerary prominence */
+.then{padding:60px 18px 46px}.then .half-head{margin-bottom:26px}
+.scrap{columns:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:1080px}
+@media(min-width:760px){.scrap{columns:auto;grid-template-columns:repeat(4,1fr);gap:20px}}
+.scrap .pol{margin:0;padding:7px 7px 2px}.scrap .pol img{aspect-ratio:4/5;object-fit:cover}
+.scrap .pol figcaption{font-size:1.05rem;padding:5px 2px 4px;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 6px}
+.btn-plan,.btn-then{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn-plan{background:var(--maize);color:var(--blue);font-size:1.1rem;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.btn-then{background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.5)}
+.nav a.nav-cta{background:var(--maize);color:var(--blue);border-radius:999px}
+.now .half-head .display{font-size:clamp(2.8rem,7vw,5.2rem)}
+.plan{max-width:1000px;margin-left:auto;margin-right:auto}
+.day{grid-template-columns:96px 1fr;gap:22px;margin-bottom:36px}
+.day-n{width:96px;height:96px}.day-n b{font-size:2.2rem}
+.day>div{padding:24px 28px;font-size:1.08rem}
+.discover,.photo-pair{gap:30px;margin-bottom:90px}.food{gap:22px}.eat{margin-bottom:40px}
+@media(max-width:600px){.day{grid-template-columns:58px 1fr;gap:14px}.day-n{width:58px;height:58px}.day>div{padding:16px 18px;font-size:1rem}}
+.tl-line{left:45px}@media(max-width:600px){.tl-line{left:26px}.day-n b{font-size:1.3rem}}
+.hero-ctas{justify-content:center}

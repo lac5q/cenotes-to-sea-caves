@@ -29,7 +29,6 @@ gsap.to('.hero-b',{opacity:1,ease:'none',scrollTrigger:{trigger:'.hero',start:'t
 $$('.scrap .pol').forEach(el=>gsap.from(el,{y:120,opacity:0,rotate:gsap.utils.random(-25,25),scale:.8,duration:1,ease:'elastic.out(1,.6)',scrollTrigger:{trigger:el,start:'top 92%'}}));
 gsap.from('.sticker',{scale:0,rotate:-180,duration:.9,ease:'back.out(3)',stagger:.2,scrollTrigger:{trigger:'.scrap',start:'top 80%'}});
 $$('.doodle path,.doodle circle').forEach(p=>{const L=p.getTotalLength();gsap.fromTo(p,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1.4,ease:'power2.out',scrollTrigger:{trigger:'.scrap',start:'top 75%'}})});
-gsap.from('.strip .pol',{x:200,opacity:0,stagger:.08,duration:.9,ease:'back.out(1.5)',scrollTrigger:{trigger:'.strip',start:'top 85%'}});
 $$('.half-head').forEach(h=>gsap.from(h.children,{y:50,opacity:0,stagger:.12,duration:.9,ease:'back.out(1.8)',scrollTrigger:{trigger:h,start:'top 85%'}}));
 // dive
 const tl=gsap.timeline({scrollTrigger:{trigger:'.dive',start:'top top',end:'bottom bottom+=-20%',scrub:1}});
