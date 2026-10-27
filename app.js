@@ -58,3 +58,4 @@ let pref=null,seen=null;try{pref=localStorage.getItem(K);seen=localStorage.getIt
 if(pref==='on'){b.classList.add('wants');const go=()=>{document.removeEventListener('pointerdown',go);document.removeEventListener('keydown',go);if(!on)start()};document.addEventListener('pointerdown',go);document.addEventListener('keydown',go);}
 if(!seen&&hint){setTimeout(()=>{hint.hidden=false;setTimeout(()=>hint.hidden=true,7000)},2500);try{localStorage.setItem(K+'-hint','1')}catch(e){}}
 })();
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('img[src="img/steps.webp"]').forEach(i=>i.src='img/steps-still.webp');(window.PHOTOS||[]).forEach(p=>{if(p.src==='img/steps.webp')p.src='img/steps-still.webp'})}
