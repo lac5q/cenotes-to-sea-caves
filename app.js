@@ -20,6 +20,7 @@ const h1=$('h1.split');
 function fallback(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}}),{threshold:.12});$$('.reveal').forEach(el=>io.observe(el))}
 if(RM||!window.gsap){fallback();return}
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 h1.childNodes.forEach(n=>{if(n.nodeType===3){const f=document.createDocumentFragment();[...n.textContent].forEach(c=>{const s=document.createElement('span');s.className='ch';s.textContent=c===' '?'\u00a0':c;f.append(s)});n.replaceWith(f)}});
 gsap.from('h1 .ch, h1 em',{y:80,opacity:0,rotate:()=>gsap.utils.random(-25,25),stagger:.04,duration:.9,ease:'back.out(2)'});
 gsap.from('.eyebrow,.hero-dek,.hero-sub,.hero-meta span',{y:30,opacity:0,stagger:.12,delay:.5,duration:.8,ease:'back.out(1.6)'});

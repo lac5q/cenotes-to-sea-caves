@@ -138,3 +138,11 @@ figure:hover .pz img{transform:scale(1.07) rotate(1deg)}
 @media(max-width:600px){.day{grid-template-columns:58px 1fr;gap:14px}.day-n{width:58px;height:58px}.day>div{padding:16px 18px;font-size:1rem}}
 .tl-line{left:45px}@media(max-width:600px){.tl-line{left:26px}.day-n b{font-size:1.3rem}}
 .hero-ctas{justify-content:center}
+.strip-wrap{max-width:1080px;margin:22px auto 0}.strip{padding:18px 8px 22px;gap:18px}
+.strip .pol{flex:0 0 min(56vw,220px);padding:7px 7px 2px}.strip .pol img{aspect-ratio:4/5;object-fit:cover}.strip .pol figcaption{font-size:1.05rem}
+.then{padding:80px 18px 70px}.then .half-head{margin-bottom:40px}.scrap{gap:26px}@media(min-width:760px){.scrap{gap:28px}}
+.scrap .pol figcaption,.strip .pol figcaption{font-size:1.2rem;padding:8px 4px 6px}
+.strip-wrap{margin-top:40px}.strip .pol{flex:0 0 min(72vw,300px)}
+.scrap .pol.feat{grid-column:span 2;grid-row:span 2;--rot:-2deg}.scrap .pol.feat img{aspect-ratio:auto;height:calc(100% - 3.2rem)}
+.scrap .pol.feat figcaption{font-size:1.45rem}
+.feat::after{content:"Staff pick";position:absolute;top:14px;right:-10px;background:var(--pink);color:#fff;font-family:Fredoka,sans-serif;font-weight:600;padding:5px 12px;border-radius:999px;transform:rotate(8deg);box-shadow:0 4px 10px rgba(0,0,0,.2)}
