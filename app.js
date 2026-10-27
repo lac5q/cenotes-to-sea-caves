@@ -43,3 +43,18 @@ $$('.day-n').forEach(d=>gsap.from(d,{scale:0,rotate:-90,duration:.8,ease:'back.o
 $$('.pz img').forEach(i=>gsap.fromTo(i,{yPercent:-6,scale:1.12},{yPercent:6,ease:'none',scrollTrigger:{trigger:i,scrub:true}}));
 gsap.from('.block-m',{y:200,scrollTrigger:{trigger:'.signoff',start:'top bottom',end:'bottom bottom',scrub:true}});
 })();
+/* waves ambience: CC0 recording, Web Audio seamless loop, starts muted */
+(()=>{const b=document.getElementById('waves'),hint=document.getElementById('waves-hint');if(!b)return;
+let ctx,gain,src,buf,on=false;const K='ctos-waves';
+async function start(){try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();await ctx.resume();
+if(!buf){const r=await fetch('waves.mp3');buf=await ctx.decodeAudioData(await r.arrayBuffer());}
+gain=gain||(()=>{const g=ctx.createGain();g.gain.value=0;g.connect(ctx.destination);return g})();
+if(!src){src=ctx.createBufferSource();src.buffer=buf;src.loop=true;src.connect(gain);src.start();}
+const t=ctx.currentTime;gain.gain.cancelScheduledValues(t);gain.gain.setValueAtTime(gain.gain.value,t);gain.gain.linearRampToValueAtTime(.55,t+2.5);set(true);}catch(e){set(false)}}
+function stop(){if(ctx&&gain){const t=ctx.currentTime;gain.gain.cancelScheduledValues(t);gain.gain.setValueAtTime(gain.gain.value,t);gain.gain.linearRampToValueAtTime(0,t+1.2);}set(false)}
+function set(v){on=v;b.setAttribute('aria-pressed',v);b.setAttribute('aria-label',v?'Mute the waves':'Play the waves');b.classList.toggle('on',v);try{localStorage.setItem(K,v?'on':'off')}catch(e){}}
+b.addEventListener('click',()=>{if(hint)hint.hidden=true;try{localStorage.setItem(K+'-hint','1')}catch(e){}on?stop():start()});
+let pref=null,seen=null;try{pref=localStorage.getItem(K);seen=localStorage.getItem(K+'-hint')}catch(e){}
+if(pref==='on'){b.classList.add('wants');const go=()=>{document.removeEventListener('pointerdown',go);document.removeEventListener('keydown',go);if(!on)start()};document.addEventListener('pointerdown',go);document.addEventListener('keydown',go);}
+if(!seen&&hint){setTimeout(()=>{hint.hidden=false;setTimeout(()=>hint.hidden=true,7000)},2500);try{localStorage.setItem(K+'-hint','1')}catch(e){}}
+})();
